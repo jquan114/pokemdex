@@ -1,18 +1,20 @@
 const express = require('express');
 const app = express();
 const port =3000;
+const methodOverride = require("method-override");
 
 const pokemon = require("./models/pokemon")
 console.log(pokemon)
 
+ //mount middleware
+ app.use(express.urlencoded({ extended: false}));
+ app.use(methodOverride("_method"));
 
 
 // index route
 app.get('/',(req,res) => {
     res.render('index.ejs',{ data:pokemon });
 });
-
-
 
 
 
