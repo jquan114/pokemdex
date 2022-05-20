@@ -1,21 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+               <!-- Header partials -->
 <head>
 <%- include('./partials/header.ejs') %> 
 <link rel="stylesheet" href="/public/new-style.css">
 </head>
 <body>
+
+    <!------------ create some forms for the user to fill out for the pokedex------------->
     <form action="/" method="POST">
-        ID: <br> <input type="number" name="id"><br>
         Name:<br> <input type="text" name="name"><br>
-        Image:<br> <input type="img" name="img"><br>
+        ID: <br> <input type="number" name="id"><br>
         Type:<br> <input type="text" name="type">
+        Image:<br> <input type="img" name="img"><br>
+        
         <input type="text" name="type"><br>
-        HP:<br> <input type="number" name="hp"><br>
-        Attack:<br> <input type="number" name="attack"><br>
+        <!---------------- Description of podedex ---------------->
+         HP:<br> <input type="number" name="hp"><br>
         Defense:<br> <input type="number" name="defense"><br>
-        SPAttack:<br> <input type="number" name="spattack"><br>
         SPDefense:<br> <input type="number" name="spdefense"><br>
+        Attack:<br> <input type="number" name="attack"><br>
+        SPAttack:<br> <input type="number" name="spattack"><br>
         Speed:<br> <input type="number" name="speed"><br>
         <input type="submit" value="Create Pokemon">
     </form>

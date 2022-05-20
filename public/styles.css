@@ -1,3 +1,86 @@
+
 body{
-    background-color: bisque;
+    background-color:darkkhaki;
+    font-family: 'Bebas Neue', cursive;
+}
+#header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color:#8bdde0;
+    margin-bottom:10px;
+
+}
+.container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap:1em;
+}
+#header h1{
+    margin-top: 0;
+    margin-bottom: 40 px;
+    font-size: 4em;
+    color: #8bdde0;
+    text-shadow: -3px 3px 0px #8bdde0a6, -6px 6px 0px #8bdde07f;
+    -webkit-text-stroke: .25px #1d3557d8;
+}
+#header a{
+    margin-top: 50px;
+}
+#header a button{
+    background-color:beige;
+    border-radius: 8px;
+    color: #1d3557;
+    border: 3px outset #1d3557;
+    font-family: 'Bebas Neue', cursive;
+    padding: 4px 10px 4px 10px;
+}
+#header a button:hover{
+    background-color:lightcoral;
+    border: 3px outset #a8dadc;
+    border-radius: 1px / 1x 2px;
+    transition: background 1s, color 3s;
+    transition-timing-function: cubic-bezier();
+}
+.pokemonCard:hover{
+    background-color: #a1d5d7;
+    border-radius: 300px / 10px 150px;
+    transition: background .5s, color 1.5s;
+    transition-timing-function: cubic-bezier();
+}
+
+.pokemonCard{
+    padding: 0.5em;
+    color: #f1faee;
+    background-color: #1d3557;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    text-align: center;
+    border-radius: 10px;;
+}
+.pokemonCard form input:hover{
+    background-color:#a1d5d7;
+    margin-top: 2px;
+    color: #8fcacc;
+    border: 2px outset #8fcacc;
+    transition: background .5s, color 2s;
+    transition-timing-function: cubic-bezier();
+}
+.pokemonCard h4{
+    background-color: #5f97ba;
+    margin-bottom: 0;
+}
+.pokemonCard img{
+    width: 100px;
+    height: 100px;
+}
+.pokemonCard input{
+    background-color:black;
+    margin-top: 2px;
+    color: #1d3557;
+    border: 3px outset #1d3557;
+    font-family: 'Bebas Neue', cursive;
+    padding: 5px 12x 5px 12px;
 }

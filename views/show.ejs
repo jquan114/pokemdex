@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
+<!---------------Include partials for header--------------->
 <head>
 <%- include("./partials/header.ejs") %> 
+<!------------------Links css styles---------------->
 <link rel="stylesheet" href="/public/show-style.css"
 </head>
 <body>
-    <!-- variabels: id,name,img, type, stats, moves, damages, misc -->
+    <!-----------variabels: id,name,img, type, stats, moves, damages, misc ------------->
     <div class="header">
         <h1>Pokedex</h1>
         <a href="/">
@@ -15,6 +18,7 @@
             <button>ADD POKEMON</button>
         </a>
     </div>
+
     <div class="info">
     <div class="idCard">
         <h3><%=name%></h3>
@@ -22,6 +26,8 @@
         <img src="<%=img%>">
     </div>
     <div class="typeCard">
+
+        <!--------------- Write a for loop to loop through the pokedex --------------->
         <h4>Type:</h4>
         <% for(let i = 0; i < 2; i++) {%>
             <p><%=type[i]%> </p>
@@ -32,6 +38,7 @@
         <% for(let key in stats){%> 
         <p><%=key%>: <%=stats[key]%>  </p>
     <%}  %> 
+       <!-------------------route links to edit pokede-------------->
     <a href="/<%=index%>/edit">
         <button class="edit">Edit</button>
     </a>

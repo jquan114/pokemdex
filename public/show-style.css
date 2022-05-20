@@ -1,0 +1,143 @@
+
+   
+body{
+    background-color: #e63946;
+    font-family: 'Bebas Neue', cursive;
+}
+.header{
+    background-color: #1d3557;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 80px;
+}
+.header h1{
+    padding-left: 20px;
+    margin-top: 0;
+    font-size: 4em;
+    color: #8bdde0;
+    text-shadow: -3px 3px 0px #8bdde0a6, -6px 6px 0px #8bdde07f;
+    -webkit-text-stroke: .25px #1d3557d8;
+}
+.header a{
+    margin-top: 25px;
+}
+.header a button{
+    margin-top: 0;
+    font-family: 'Bebas Neue', cursive;
+    margin-right: 20px;
+    padding: 4px 10px 4px 10px;
+    background-color: #a8dadc;
+    border-radius: 8px;
+    color: #1d3557;
+    border: 3px outset #1d3557;
+}
+.header a button:hover {
+    background-color: #1d3557;
+    margin-top: 2px;
+    color: #8fcacc;
+    border: 2px outset #8fcacc;
+    transition: background .5s, color 2s;
+    transition-timing-function: cubic-bezier();
+}
+.info {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.idCard{
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: flex-start;
+    width: 25%;
+    text-align: center;
+}
+.idCard h4{
+    margin-top:0;
+    margin-bottom:0;
+    color: #8fcacc;
+    background-color: #1d3557;
+}
+.idCard h3{
+    margin-top:0;
+    margin-bottom:5px;
+    color: #8fcacc;
+    background-color: #1d3557;
+}
+.idCard img{
+    border:2px solid #1d3557;
+    width: 246px;
+    height: 246px;
+}
+.typeCard{
+    color: #8fcacc;
+    background-color: #1d3557;
+    width: 25%;
+    text-align: center;
+}
+.typeCard h4{
+    padding-top: 70px;
+}
+.statsCard{
+    color: #8fcacc;
+    background-color: #1d3557;
+    width: 25%;
+    text-align: center;
+}
+.statsCard a button{
+    font-family: 'Bebas Neue', cursive;
+    background-color: #a8dadc;
+    border-radius: 8px;
+    color: #1d3557;
+    border: 3px outset #1d3557;
+    padding: 4px 10px 4px 10px;
+    margin-bottom: 5px;
+}
+
+.statsCard a button:hover {
+    background-color: #1d3557;
+    margin-top: 2px;
+    color: #8fcacc;
+    border: 2px outset #8fcacc;
+    transition: background .5s, color 2s;
+    transition-timing-function: cubic-bezier();
+}
+
+@media (max-width: 767px) {
+    .header a button{
+        padding: 2px 5px 2px 5px;
+    }
+    .info {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        background-color: #1d3557;
+        margin-top:0;
+        padding-left: 10px;
+    }
+    .idCard{
+        width: 90%;
+        margin-bottom:0;
+    }
+    .idCard img{
+        margin-left: 40px;
+    }
+
+    .typeCard{
+        height: 50px;
+        width: 90%;
+    }
+    .typeCard h2{
+        padding-top: 5px;
+        margin-bottom: 0;
+        margin-top:0;
+        height: 20px;
+    }
+    .typeCard p{
+        margin-top: 0;
+    }
+    .statsCard{
+        width: 90%;
+    }
+}

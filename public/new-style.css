@@ -1,0 +1,29 @@
+body{
+    background-color:blanchedalmond;
+}
+form{
+    background-color: #1d3557;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 18px;
+    display: flex;
+    align-content: space-between;
+    flex-direction: column;
+    width: 30%;
+    margin: 50px auto;
+    color:aquamarine;
+    text-align: center;
+    padding: 10px;
+    letter-spacing: 2px;
+}
+form #text{
+    color: #f1faee;
+}
+form input{
+    border: 2.5px outset #be222f;
+    margin: 10px 10px;
+    background-color: #8bdde0;
+    color: #be222f;
+    outline: none;
+    margin-top: 0px;
+}
+

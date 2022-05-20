@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
+<!-------------------------------- Include Header partials ---------------------->
 <head>
 <%- include("./partials/header.ejs") %> 
 <link rel="stylesheet" href="/public/new-style.css">
 </head>
 <body>
-    <!--stats, id: req.params.id-->
+    <!------------------------creat a form that includess hp, attack, speeds stats, id: req.params.id etc.------------------------>
     <form action="/<%=id%>?_method=PUT" method="POST">
     HP:<br> <input type="number" name="hp" value = "<%=stats.hp%>"><br>
     ATTACK:<br> <input type="number" name="attack" value = "<%=stats.attack%>"><br>
