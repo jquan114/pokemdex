@@ -1,92 +1,57 @@
 const express = require('express');
 const app = express();
-const port =3000;
+const port = 3000;
 const methodOverride = require("method-override");
 
-const pokemon = require("./models/pokemon")
-console.log(pokemon)
+const pokemon = require('./models/pokemon')
 
- //mount middleware
- app.use(express.urlencoded({ extended: false}));
- app.use(methodOverride("_method"));
+app.use(express.urlencoded({ extended: false }))
+app.use(methodOverride("_method"))
+// app.use(morgan('dev'))
+app.use("/public", express.static("public"));
 
-
-// index route
-app.get('/',(req,res) => {
-    res.render('index.ejs',{ data:pokemon });
-});
-
-
+app.get("/", (req, res) => {
+    res.render("index.ejs", {pokemon:pokemon})
+})
 
 //show route
-app.get('/pokemon/:indexOfPokemonArray', (req,res) => {
-    res.render('show.ejs',{ data: pokemon[req.params.id]});
-});
-
-
-
-
+app.get("/show", (req, res) => {
+    res.send(pokemon)
+})
 //new route
-app.get('/pokemon/new', (req,res) => {
-    res.render('new.ejs');
-});
-
-
-
-
+app.get("/new", (req, res) => {
+    res.render("new.ejs")
+})
 //edit route
-app.get('/pokemon/:indexOfPokemonArray/edit',(req,res) => {
-    res.render('edit.ejs', {
-        poke: pokemon[req.params.indexOfPokemonArray],
-        index: req.params.indexOfPokemonArray,
-    });
-});
+app.get("/:id/edit", (req, res) => {
+    const { stats } = pokemon[req.params.id]
+    res.render("edit.ejs", {stats, id: req.params.id})
+})
+//index route
+app.get("/:index", (req, res) => {
+    const { id, name, img, type, stats, moves, damages, misc } = pokemon[parseInt(req.params.index)-1];
+    res.render("show.ejs", {id, name, img, type, stats, index:req.params.index})
+})
+//delete route
+app.delete("/:index", (req, res) => {
+    pokemon.splice(req.params.index, 1)
+    res.redirect('/')
+})
 
-
-//create route
-app.post('/pokemon',(req,res) => {
-    if(req.body.name.img === 'true') {
-        req.body.name.img = true;
-    } else {
-        req.body.name.img = false;
-    }
-    pokemon.push(req.body);
-    console.log(pokemon);
-    res.redirect('/pokemon');
-});
-
-
-
-
-//update route
-app.put('/pokemon/:indexOfPokemonArray',(req,res) => {
-    if(req.body.name.img === 'true'){
-        req.body.name.img = true;
-    } else {
-        req.body.name.img = false;
-    }
-    pokemon[req.params.indexOfPokemonArray]= req.body;
-
-    res.redirect('/pokemon');
-});
-
-
-
-
-//destroy route
-app.delete('/pokemon/:indexOfPokemonArray',(req,res) => {
-    pokemon.splice(req.params.indexOfPokemonArray, 1);
-    res.redirect('/pokemon');
-});
-
-
-
-//tell the app to listen
-app.listen(port,() => {
-     console.log(`listening on the port`, port)
- });
-
-
-
-
-
+//pose route
+app.post("/", (req, res) => {
+    const { id, name, img, type, hp, attack, defense, spattack, spdefense, speed } = req.body
+    let stats = {hp, attack, defense, spattack, spdefense, speed}
+    let newPokemon = {id, name, img, type, stats}
+    pokemon.push(newPokemon)
+    res.redirect("/")
+})
+// app put
+app.put("/:index", (req, res) => {
+    pokemon[req.params.index].stats = req.body
+    res.redirect(`/${req.params.index}`)
+})
+//listen for poor 3000
+app.listen(port, () => {
+    console.log("Listening on port: " + port)
+})

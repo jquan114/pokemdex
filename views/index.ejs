@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include("./partials/header.ejs") %>
+    <link rel="stylesheet" href="/public/index-style.css">
+  </head>
+  <body>
+    <!-- pokemon variable -->
+    <div id="header">
+      <h1>Pokedex</h1>
+      <a href="/new">
+        <button>Add Pokemon</button>
+      </a>
+    </div>
+    <div class="container">
+    <% for(let i = 0; i < pokemon.length; i++) {%>
+    <div class="pokemonCard">
+      <h4><%= pokemon[i].name%></h4>
+      <a href="/<%=i+1%>">
+      <img src="<%= pokemon[i].img%> " />
+      <form action='/<%=i%>?_method=DELETE' method="POST">
+        <input type="submit" value="Delete">
+    </form>
+  </a>
+    </div>
+    <% } %>
+  </div>
+  </body>
+</html>

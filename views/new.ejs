@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<%- include('./partials/header.ejs') %> 
+<link rel="stylesheet" href="/public/new-style.css">
+</head>
+<body>
+    <form action="/" method="POST">
+        ID: <br> <input type="number" name="id"><br>
+        Name:<br> <input type="text" name="name"><br>
+        Image:<br> <input type="img" name="img"><br>
+        Type:<br> <input type="text" name="type">
+        <input type="text" name="type"><br>
+        HP:<br> <input type="number" name="hp"><br>
+        Attack:<br> <input type="number" name="attack"><br>
+        Defense:<br> <input type="number" name="defense"><br>
+        SPAttack:<br> <input type="number" name="spattack"><br>
+        SPDefense:<br> <input type="number" name="spdefense"><br>
+        Speed:<br> <input type="number" name="speed"><br>
+        <input type="submit" value="Create Pokemon">
+    </form>
+</body>
+</html>

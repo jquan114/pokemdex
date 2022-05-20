@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<%- include("./partials/header.ejs") %> 
+<link rel="stylesheet" href="/public/new-style.css">
+</head>
+<body>
+    <!--stats, id: req.params.id-->
+    <form action="/<%=id%>?_method=PUT" method="POST">
+    HP:<br> <input type="number" name="hp" value = "<%=stats.hp%>"><br>
+    ATTACK:<br> <input type="number" name="attack" value = "<%=stats.attack%>"><br>
+    DEFENSE:<br> <input type="number" name="defense" value = "<%=stats.defense%>"><br>
+    SPATTACK:<br> <input type="number" name="spattack" value = "<%=stats.spattack%>"><br>
+    SPDEFENSE:<br> <input type="number" name="spdefense" value = "<%=stats.spdefense%>"><br>
+    SPEED:<br> <input type="number" name="speed" value = "<%=stats.speed%>"><br>
+    <input type="submit" value="Submit Changes">
+    </form>
+</body>
+</html>
