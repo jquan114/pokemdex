@@ -7,15 +7,18 @@
 <link rel="stylesheet" href="/public/new-style.css">
 </head>
 <body>
-    <!------------------------creat a form that includess hp, attack, speeds stats, id: req.params.id etc.------------------------>
+    <!------------------------Create a form that includess hp, attack, speeds stats, id: req.params.id etc.------------------------>
     <form action="/<%=id%>?_method=PUT" method="POST">
-    HP:<br> <input type="number" name="hp" value = "<%=stats.hp%>"><br>
-    ATTACK:<br> <input type="number" name="attack" value = "<%=stats.attack%>"><br>
-    DEFENSE:<br> <input type="number" name="defense" value = "<%=stats.defense%>"><br>
-    SPATTACK:<br> <input type="number" name="spattack" value = "<%=stats.spattack%>"><br>
-    SPDEFENSE:<br> <input type="number" name="spdefense" value = "<%=stats.spdefense%>"><br>
-    SPEED:<br> <input type="number" name="speed" value = "<%=stats.speed%>"><br>
+    HP:<br> <input type="number" name="hp" value = "<%=stats.hp%>"/><br>
+    ATTACKS:<br> <input type="number" name="attack" value = "<%=stats.attack%>"/><br>
+    DEFENSES:<br> <input type="number" name="defense" value = "<%=stats.defense%>"/><br>
+    SPATTACK:<br> <input type="number" name="spattack" value = "<%=stats.spattack%>"/><br>
+    SPDEFENSE:<br> <input type="number" name="spdefense" value = "<%=stats.spdefense%>"/><br>
+    SPEED IT UP:<br> <input type="number" name="speed" value = "<%=stats.speed%>"/><br>
     <input type="submit" value="Submit Changes">
+    <nav>
+        <a href="/pokemon">
+    </nav>
     </form>
 </body>
 </html>

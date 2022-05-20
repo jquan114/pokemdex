@@ -1,25 +1,27 @@
 // ==========require express,ejs servers, define variables and routes ==================
-const express = require('express')
-const app = express()
+const express = require('express');
+const app = express();
 const port = 3000
-const pokemon = ('/models/pokemon')
-const methodOverride = require("method-override")
+const pokemon = require('./models/pokemon');
+//npm install method-override
+const methodOverride = require("method-override");
 // let  pokemon=reqiure('./models/pokemon')
+
 
 // const morgan = require('morgan')
 // const pokemon = require('./models/pokemon')
 
-//====================middle ware=================
-app.use(express.urlencoded({ extended: false }))
-app.use(methodOverride("_method"))
+//====================MIDDLEWARE=================
+app.use(express.urlencoded({ extended: false }));
+app.use(methodOverride("_method"));
 // app.use(morgan('dev'))
 app.use("/public", express.static("public"));
 app.use((req,res,next) => {
     console.log('I run all routes')
     next()
-})
+});
 
-//================route intialized============
+//================ROUTE INITIALIZED============
 
 app.get("/", (req, res) => {
     res.render("index.ejs", {pokemon:pokemon})
@@ -33,19 +35,22 @@ app.get("/new", (req, res) => {
     res.render("new.ejs")
 });
 //=================EDIT ROUTE==================
-app.get("/:id/edit", (req, res) => {
+app.get("/pokemon/:id/edit", (req, res) => {
+    console.log(`params ${req.params.id}`)
     const { stats } = pokemon[req.params.id]
-    res.render("edit.ejs", {stats, id: req.params.id})
+    
+    res.render("edit.ejs",// pass in an object that contains and render views/edit.ejs /
+     {stats, id: req.params.id})
 });
 //=================INDEX ROUTE========================
-app.get("pokemon/:index", (req, res) => {
+app.get("pokemon/:indexOfPokemonArray", (req, res) => {
     const { name, img, type, stats, moves, damages, misc } = pokemon[(req.params.index.id)];
     const { id }= pokemon[(req.params.index.id)]
     res.render("show.ejs", {id, name, img, type, stats, index:req.params.index.id})
 });
 //==================DELETE ROUTE=========================
-app.delete("/:index", (req, res) => {
-    pokemon.splice(req.params.index, 1)
+app.delete("/pokemon/:indexOfPokemonArray", (req, res) => {
+    pokemon.splice(req.params.index, 1)//redirect back to index route
     res.redirect('/')
 });
 
@@ -61,7 +66,7 @@ app.post("/pokemon", (req, res) => {
 app.put("/:index", (req, res) => {
     const {attack, defense, spattack, spdefense, speed} = req.body
     pokemon[req.params.index-1].stats = {attack, defense, spattack, spdefense, speed}
-    res.redirect(`/${req.params.index}`)
+    res.redirect(`/pokemon${req.params.index}`)
 })
 //==============port listenining======================
 app.listen(port, () => {

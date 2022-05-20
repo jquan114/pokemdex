@@ -8,21 +8,21 @@
   <body>
     <!------------route pokemon variable to new.ejs, add button and a heading-------------->
     <div id="header">
-      <h1> Pokedex </h1>
+      <h1> Pokedex , Yessir</h1>
 
       <!-----------routes to new page------->
       <a href="/new">
-        <button>Add A Pokemon</button>
+        <button>Add Some Pokemon</button>
       </a>
     </div>
-<!-----------------write a foor loop on index page and display img-------------->
+<!-----------------WRITE A FOR LOOP TO index page and display img-------------->
     <div class="container">
     <% for(let i = 0; i < pokemon.length; i++) {%>
     <div class="pokemonCard">
       <h4><%= pokemon[i].name%></h4>
       <a href="/<%=i+1%>">
 
-        <!---------------------have img from the array-------------->
+        <!---------------------HAVE IMAGE OF ARRAY-------------->
 
       <img src="<%= pokemon[i].img%> " />
 
@@ -34,6 +34,7 @@
     </div>
     <% } %>
   </div>
+   <!-------------------REROUTE THE USER TO NEW PAGE---------------->
   <nav>
       <a href="/pokemon/new"> Create A New Pokemon</a>
   </nav>
