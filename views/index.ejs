@@ -20,14 +20,14 @@
     <% for(let i = 0; i < pokemon.length; i++) {%>
     <div class="pokemonCard">
       <h4><%= pokemon[i].name%></h4>
-      <a href="/<%=i+1%>">
+      <a href="/pokemon/<%=i%>">
 
         <!---------------------HAVE IMAGE OF ARRAY-------------->
 
       <img src="<%= pokemon[i].img%> " />
 
       <!---------------Delete Method on form to override----------->
-      <form action='/<%=i%>?_method=DELETE' method="POST">
+      <form action='/pokemon/<%=i%>?_method=DELETE' method="POST">
         <input type="submit" value="Delete">
     </form>
   </a>

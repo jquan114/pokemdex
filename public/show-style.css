@@ -5,7 +5,7 @@ body{
     font-family: 'Bebas Neue', cursive;
 }
 .header{
-    background-color: #1d3557;
+    background-color: white;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -33,7 +33,7 @@ body{
     border: 3px outset #1d3557;
 }
 .header a button:hover {
-    background-color: #1d3557;
+    background-color: white;
     margin-top: 2px;
     color: #8fcacc;
     border: 2px outset #8fcacc;
@@ -57,7 +57,7 @@ body{
     margin-top:0;
     margin-bottom:0;
     color: #8fcacc;
-    background-color: #1d3557;
+    background-color: white;
 }
 .idCard h3{
     margin-top:0;
@@ -112,7 +112,7 @@ body{
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        background-color: #1d3557;
+        background-color: grey;
         margin-top:0;
         padding-left: 10px;
     }

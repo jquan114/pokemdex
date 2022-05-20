@@ -8,10 +8,10 @@ form{
     display: flex;
     align-content: space-between;
     flex-direction: column;
-    width: 30%;
-    margin: 50px auto;
+    width: 50%;
+    margin: 20px auto;
     color:aquamarine;
-    text-align: center;
+    text-align: left;
     padding: 10px;
     letter-spacing: 2px;
 }

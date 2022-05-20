@@ -5,41 +5,42 @@
 <head>
 <%- include("./partials/header.ejs") %> 
 <!------------------Links css styles---------------->
-<link rel="stylesheet" href="/public/show-style.css"
+<link rel="stylesheet" href="/public/show-style.css">
 </head>
 <body>
     <!-----------variabels: id,name,img, type, stats, moves, damages, misc ------------->
     <div class="header">
-        <h1>Pokedex</h1>
-        <a href="/">
+        <h1>Pokedex , Hello</h1>
+        <a href="/pokemon">
             <button>BACK</button>
         </a>
         <a href="/new">
-            <button>ADD POKEMON</button>
+            <button>Add Some Pokemon Bruh Bruh</button>
         </a>
     </div>
 
     <div class="info">
     <div class="idCard">
-        <h3><%=name%></h3>
-        <h4><%=id%> </h4>
-        <img src="<%=img%>">
+        <h3><%=pokemon.name%></h3>
+        <h3><%=pokemon.id%> </h3>
+        
+        <img src="<%=pokemon.img%>">
     </div>
     <div class="typeCard">
 
         <!--------------- Write a for loop to loop through the pokedex --------------->
         <h4>Type:</h4>
         <% for(let i = 0; i < 2; i++) {%>
-            <p><%=type[i]%> </p>
+            <p><%=pokemon.type[i]%> </p>
         <%}%>  
     </div>
     <div class="statsCard">
         <h4>Stats:</h4>
-        <% for(let key in stats){%> 
-        <p><%=key%>: <%=stats[key]%>  </p>
+        <% for(let key in pokemon.stats){%> 
+        <p><%=key%>: <%=pokemon.stats[key]%>  </p>
     <%}  %> 
        <!-------------------route links to edit pokede-------------->
-    <a href="/<%=index%>/edit">
+    <a href="/pokemon/<%=index%>/edit">
         <button class="edit">Edit</button>
     </a>
     </div>
