@@ -2,6 +2,7 @@
 const express = require('express')
 const app = express()
 const port = 3000
+const pokemon = ('/models/pokemon')
 const methodOverride = require("method-override")
 // let  pokemon=reqiure('./models/pokemon')
 
@@ -37,9 +38,10 @@ app.get("/:id/edit", (req, res) => {
     res.render("edit.ejs", {stats, id: req.params.id})
 });
 //=================INDEX ROUTE========================
-app.get("/:index", (req, res) => {
-    const { id, name, img, type, stats, moves, damages, misc } = pokemon[parseInt(req.params.index)-1];
-    res.render("show.ejs", {id, name, img, type, stats, index:req.params.index})
+app.get("pokemon/:index", (req, res) => {
+    const { name, img, type, stats, moves, damages, misc } = pokemon[(req.params.index.id)];
+    const { id }= pokemon[(req.params.index.id)]
+    res.render("show.ejs", {id, name, img, type, stats, index:req.params.index.id})
 });
 //==================DELETE ROUTE=========================
 app.delete("/:index", (req, res) => {
