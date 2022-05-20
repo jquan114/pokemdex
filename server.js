@@ -13,45 +13,49 @@ app.use(express.urlencoded({ extended: false }))
 app.use(methodOverride("_method"))
 // app.use(morgan('dev'))
 app.use("/public", express.static("public"));
+app.use((req,res,next) => {
+    console.log('I run all routes')
+    next()
+})
 
 //================route intialized============
 
 app.get("/", (req, res) => {
     res.render("index.ejs", {pokemon:pokemon})
 });
-//=================show route================
-app.get("/pokemon", (req, res) => {
-    res.send(pokemon)
+//=================SHOW ROUTE================
+app.get("/pokemon/new", (req, res) => {
+    res.render('new.ejs',pokemon)
 });
-//=================new route=================
+//=================NEW ROUTE=================
 app.get("/new", (req, res) => {
     res.render("new.ejs")
 });
-//=================edit route==================
+//=================EDIT ROUTE==================
 app.get("/:id/edit", (req, res) => {
     const { stats } = pokemon[req.params.id]
     res.render("edit.ejs", {stats, id: req.params.id})
 });
-//=================index route========================
+//=================INDEX ROUTE========================
 app.get("/:index", (req, res) => {
     const { id, name, img, type, stats, moves, damages, misc } = pokemon[parseInt(req.params.index)-1];
     res.render("show.ejs", {id, name, img, type, stats, index:req.params.index})
 });
-//==================delete route=========================
+//==================DELETE ROUTE=========================
 app.delete("/:index", (req, res) => {
     pokemon.splice(req.params.index, 1)
     res.redirect('/')
 });
 
-//====================post route=======================
-app.post("/", (req, res) => {
+//====================POST ROUTE=======================
+app.post("/pokemon", (req, res) => {
     const { id, name, img, type,attack, defense, spattack, spdefense, speed } = req.body
     let stats = { attack, defense, spattack, spdefense, speed}
     let newPokemon = {id, name, img, type, stats}
     pokemon.push(newPokemon)
-    res.redirect("/")
+    res.redirect("/pokemon")
 });
-//===================index============================
+//===================INDEX===========================
 app.put("/:index", (req, res) => {
     const {attack, defense, spattack, spdefense, speed} = req.body
     pokemon[req.params.index-1].stats = {attack, defense, spattack, spdefense, speed}
