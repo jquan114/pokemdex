@@ -17,9 +17,9 @@ app.use(methodOverride("_method"));
 // app.use(morgan('dev'))
 app.use("/public", express.static("public"));            
 app.use((req,res,next) => {
+
     console.log('I run all routes')
-    
-    next()
+     next()
 });
 
 //================ROUTE INITIALIZED============
@@ -38,23 +38,18 @@ app.get("/new", (req, res) => {
 //=================EDIT ROUTE==================
 app.get("/pokemon/:id/edit", (req, res) => { 
     console.log(req.params)
-    // console.log(req.params)
-    // console.log(`params ${req.params.id}`)
     const pokemon1 = pokemon.find(
         (item) => {
          return item.id === req.params.id;
         }
-    )
-    // pass in an object that contains and render views/edit.ejs /
-    
-    res.render("edit.ejs",
+     )
+      res.render("edit.ejs",
      {
          index:pokemon1.id,
          pokemon:pokemon1
      })
      
 });
-
 
 //==================DELETE ROUTE=========================
 app.delete("/pokemon/:id", (req, res) => {
@@ -78,15 +73,19 @@ app.get("pokemon/", (req, res) => {
     res.render("show.ejs", {id, name, img, type, stats, index:req.params.index.id}) // render back to showshowpage.ejs
 });
 //===================UPDATE ROUTE===========================
-app.put("/pokemon", (req, res) => {
+app.put('/pokemon/:id', (req, res) => {
     req.body.stats = {};
     req.body.stats.hp = req.body.hp;
     req.body.stats.attack = req.body.attack;
     req.body.stats.defense = req.body.defense;
-    console.log(req.body);
-    pokemon[req.params.id] =req.body;
-    res.redirect('/pokemon/')
-});
+    const pokemonIndex = pokemon.findIndex(
+        (item) => {
+         return item.id === req.params.id;
+        }
+     )
+    Object.assign( pokemon[pokemonIndex], req.body)
+    res.redirect('/pokemon');
+  });
     // const {attack, defense, spattack, spdefense, speed} = req.body
     // pokemon[req.params.index-1].stats = {attack, defense, spattack, spdefense, speed}
     // res.redirect(`/pokemon${req.params.index}`)
