@@ -318,7 +318,7 @@ module.exports = [
     {
       id: "002",
       name: "Ivysaur",
-      img: "http://img.pokemondb.net/artwork/ivysaur.jpg",
+      img: "http://img.pokemondb.net/artwork/ivysaur.jpg",// keep all images
       type: [
         "Grass",
         "Poison"

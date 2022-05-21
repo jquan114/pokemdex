@@ -8,7 +8,7 @@
 <body>
 
     <!------------ create some forms for the user to fill out for the pokedex------------->
-    <form action="/" method="POST">
+    <form action="/pokemon" method="POST"> <!-------- made changes to my form action-->
         Name:<br> <input type="text" name="name"><br>
         ID: <br> <input type="number" name="id"><br>
         Type:<br> <input type="text" name="type">
@@ -22,10 +22,13 @@
         Attack:<br> <input type="number" name="attack"><br>
         SPAttack:<br> <input type="number" name="spattack"><br>
         Speed:<br> <input type="number" name="speed"><br>
-        <input type="submit" value="Create Pokemon">
+        <a>
+       <input type="submit" a href="Create Pokemon">
+       <a href="/pokemon/"> Go Back Home</a>
+    </a>
     </form>
 </body>
 <nav>
-    <a href="/pokemon"> Go Back Home</a>
+    <a href="/pokemon/"> Go Back Home</a>
 </nav>
 </html>

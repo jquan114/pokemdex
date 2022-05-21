@@ -2,6 +2,7 @@
 body{
     background-color:rgb(121, 118, 67);
     font-family: 'Bebas Neue', cursive;
+    display:grid;
 }
 #header{
     display: flex;

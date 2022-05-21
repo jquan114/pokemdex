@@ -1,5 +1,6 @@
 body{
     background-color:blanchedalmond;
+    display: grid;
 }
 form{
     background-color: #1d3557;

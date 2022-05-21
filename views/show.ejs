@@ -39,9 +39,10 @@
         <% for(let key in pokemon.stats){%> 
         <p><%=key%>: <%=pokemon.stats[key]%>  </p>
     <%}  %> 
-       <!-------------------route links to edit pokede-------------->
-    <a href="/pokemon/<%=index%>/edit">
-        <button class="edit">Edit</button>
+       <!-------------------route links to edit pokedex-------------->
+    <a href="/pokemon/:id">
+        <button>Edit</button>
+    </a>
     </a>
     </div>
     </div>
