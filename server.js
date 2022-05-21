@@ -82,7 +82,7 @@ app.put("/pokemon", (req, res) => {
     // pokemon[req.params.index-1].stats = {attack, defense, spattack, spdefense, speed}
     // res.redirect(`/pokemon${req.params.index}`)
 
-//==============port listenining======================
+//==============PORT LISTENING======================
 app.listen(port, () => {
     console.log("Listening on port: " + port)
 });
