@@ -23,7 +23,6 @@
     <div class="idCard">
         <h3><%=pokemon.name%></h3>
         <h3><%=pokemon.id%> </h3>
-        
         <img src="<%=pokemon.img%>">
     </div>
     <div class="typeCard">
@@ -40,7 +39,7 @@
         <p><%=key%>: <%=pokemon.stats[key]%>  </p>
     <%}  %> 
        <!-------------------route links to edit pokedex-------------->
-    <a href="/pokemon/">
+    <a href='/pokemon/<%=pokemon.id%>/edit'>
         <button>Edit</button>
     </a>
     </a>

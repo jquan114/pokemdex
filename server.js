@@ -36,14 +36,23 @@ app.get("/new", (req, res) => {
     res.render("new.ejs")
 });
 //=================EDIT ROUTE==================
-app.get("/pokemon/:id/edit", (req, res) => {
-    console.log(`params ${req.params.id}`)
-    const { stats } = pokemon[req.params.id]
-
+app.get("/pokemon/:id/edit", (req, res) => { 
+    console.log(req.params)
+    // console.log(req.params)
+    // console.log(`params ${req.params.id}`)
+    const pokemon1 = pokemon.find(
+        (item) => {
+         return item.id === req.params.id;
+        }
+    )
     // pass in an object that contains and render views/edit.ejs /
     
     res.render("edit.ejs",
-     {stats, id: req.params.id})
+     {
+         index:pokemon1.id,
+         pokemon:pokemon1
+     })
+     
 });
 
 
